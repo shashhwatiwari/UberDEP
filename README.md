@@ -1,4 +1,4 @@
-# 🚕 Uber Data Analytics — End-to-End Data Engineering Project
+# 🚕 Uber Data Analytics - End-to-End Data Engineering Project
 
 An end-to-end data engineering pipeline that ingests NYC taxi trip data, models it
 into a **star schema**, orchestrates the ETL with **Mage** running on a **GCP Compute
@@ -46,8 +46,8 @@ NYC TLC **Yellow Taxi trip data** (~100,000-row sample). Each row is one trip, w
 pickup/dropoff timestamps and coordinates, passenger count, trip distance, rate code,
 payment type, and fare breakdown.
 
-- `data/uber_data.csv` — the source data
-- `data/Yellow_Taxi_Trip_Data_Data_Dictionary.xlsx` — official column definitions
+- `data/uber_data.csv` - the source data
+- `data/Yellow_Taxi_Trip_Data_Data_Dictionary.xlsx` - official column definitions
 
 ## 🌟 Data Model (Star Schema)
 
@@ -93,10 +93,10 @@ erDiagram
 
 ## 🔄 The Pipeline (Mage blocks)
 
-1. **Data Loader** — reads `uber_data.csv` over HTTP from this repo.
-2. **Transformer** — deduplicates, converts timestamps, and builds the 8 star-schema
+1. **Data Loader** - reads `uber_data.csv` over HTTP from this repo.
+2. **Transformer** - deduplicates, converts timestamps, and builds the 8 star-schema
    tables (see `uber-data-pipeline.ipynb` for the standalone version of this logic).
-3. **Data Exporter** — writes each of the 8 tables into BigQuery.
+3. **Data Exporter** - writes each of the 8 tables into BigQuery.
 
 ## 🚀 Reproducing This Project
 
@@ -123,7 +123,7 @@ then run the pipeline. The 8 tables appear in BigQuery.
 
 ### 5. Authentication note (ADC, no key file)
 This project authenticates to BigQuery using the VM's **attached service account**
-(Application Default Credentials) rather than a downloaded JSON key — the exporter uses
+(Application Default Credentials) rather than a downloaded JSON key - the exporter uses
 `bigquery.Client()` with no explicit credentials. Grant the VM's service account the
 **BigQuery Admin** role and ensure the VM has full Cloud API access scopes.
 
